@@ -154,10 +154,10 @@ jobs:
         rm -rf openwrt-x86-64-generic-squashfs-rootfs.img.gz
         rm -rf openwrt-x86-64-generic-squashfs-combined-efi.vmdk
         rm -rf openwrt-x86-64-generic.manifest
-        mv openwrt-x86-64-generic-squashfs-combined-efi.img.gz beggar-x86-64-squashfs-efi.img.gz
+        mv openwrt-x86-64-generic-squashfs-combined-efi.img.gz bypass-x86-64-squashfs-efi.img.gz
         popd
         make checksum
-        mv bin/targets/x86/64/sha256sums bin/targets/x86/64/beggar-sha256sums
+        mv bin/targets/x86/64/sha256sums bin/targets/x86/64/bypass-sha256sums
         echo "GENERATE_STATUS=success" >> $GITHUB_OUTPUT
 
     - name: Generate release tag
@@ -167,10 +167,10 @@ jobs:
           echo "release_tag=$(date +"%Y.%m.%d")-Lean" >> $GITHUB_OUTPUT
           echo "release_date=$(date +"%Y.%m.%d")" >> $GITHUB_OUTPUT
           touch release.txt
-          echo "后台地址：192.168.1.2
+          echo "OpeWrt-x86-64
+                后台地址：192.168.1.2
                 账号：root
-                密码：password
-                OpeWrt-x86-64" >> release.txt
+                密码：password >> release.txt
           echo "status=success" >> $GITHUB_OUTPUT
           
     - name: Upload firmware to release
