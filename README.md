@@ -1,4 +1,4 @@
-# x86-x64 每天自动更新插件和内核版本。<img src="https://img.shields.io/github/downloads/cpuer/OpenWRT_x86_x64/total.svg?style=for-the-badge&color=32C955"/>
+# x86-64 OpenWrt适用于旁路由。<img src="https://img.shields.io/github/downloads/cpuer/OpenWRT_x86_x64/total.svg?style=for-the-badge&color=32C955"/>
 ## 👉使用本固件前，请严格遵守国家互联网使用相关法律规定,不要违反国家法律规定！👈
 ### 默认编译  
 - 用户名：root 密码：password  管理IP：192.168.1.2
