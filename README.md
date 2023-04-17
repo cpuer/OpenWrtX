@@ -1,6 +1,5 @@
-# x86-64 OpenWrt适用于旁路由。
-## 当前固件下载人数：<img src="https://img.shields.io/github/downloads/cpuer/OpenWRT_x86_x64/total.svg?style=for-the-badge&color=32C955"/>
-## 本固件默认使用6.1最新内核。
+# x86-64 OpenWrt适用于旁路由<img src="https://img.shields.io/github/downloads/cpuer/OpenWRT_x86_x64/total.svg?style=for-the-badge&color=32C955"/>
+## 本固件默认使用6.1最新内核
 ### 默认编译  
 - 用户名：root  密码：password  管理IP：192.168.1.2
 - 固件下载地址：https://github.com/cpuer/OpenWRT_x86_x64/releases
