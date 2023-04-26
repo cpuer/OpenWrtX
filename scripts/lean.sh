@@ -12,9 +12,9 @@
 rm -rf package/kernel/mac80211
 rm -rf package/kernel/mt76
 rm -rf package/network/services/hostapd
-svn export https://github.com/openwrt/openwrt/trunk/package/kernel/mac80211 package/kernel/mac80211
+svn export https://github.com/DHDAXCW/openwrt-beta/trunk/package/kernel/mac80211 package/kernel/mac80211
 svn export https://github.com/DHDAXCW/LubanCat-LEDE/trunk/package/kernel/mt76 package/kernel/mt76
-svn export https://github.com/openwrt/openwrt/trunk/package/network/services/hostapd package/network/services/hostapd
+svn export https://github.com/DHDAXCW/openwrt-beta/trunk/package/network/services/hostapd package/network/services/hostapd
 
 # alist
 git clone https://github.com/sbwml/luci-app-alist package/alist
@@ -94,16 +94,16 @@ svn export https://github.com/openwrt/packages/trunk/utils/apk
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
 
 # Add luci-aliyundrive-webdav
-# rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav 
-# rm -rf ../../customfeeds/luci/applications/aliyundrive-webdav
-# svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
-# svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
-# popd
+rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav 
+rm -rf ../../customfeeds/luci/applications/aliyundrive-webdav
+svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
+svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
+popd
 
 # Add Pandownload
-# pushd package/lean
-# svn export https://github.com/immortalwrt/packages/trunk/net/pandownload-fake-server
-# popd
+pushd package/lean
+svn export https://github.com/immortalwrt/packages/trunk/net/pandownload-fake-server
+popd
 
 # Mod zzz-default-settings
 pushd package/lean/default-settings/files
@@ -115,10 +115,10 @@ sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-setti
 popd
 
 # Fix libssh
-# pushd feeds/packages/libs
-# rm -rf libssh
-# svn export https://github.com/openwrt/packages/trunk/libs/libssh
-# popd
+pushd feeds/packages/libs
+rm -rf libssh
+svn export https://github.com/openwrt/packages/trunk/libs/libssh
+popd
 
 # Change default shell to zsh
 sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
@@ -127,9 +127,9 @@ sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 sed -i 's/192.168.1.1/192.168.1.2/g' package/base-files/files/bin/config_generate
 
 # Test kernel 6.1
-# rm -rf target/linux/x86/base-files/etc/board.d/02_network
-# cp -f $GITHUB_WORKSPACE/02_network target/linux/x86/base-files/etc/board.d/02_network
+rm -rf target/linux/x86/base-files/etc/board.d/02_network
+cp -f $GITHUB_WORKSPACE/02_network target/linux/x86/base-files/etc/board.d/02_network
 sed -i 's/5.15/6.1/g' target/linux/x86/Makefile
 rm -rf package/base-files/files/etc/banner
 wget -P package/base-files/files/etc https://raw.githubusercontent.com/DHDAXCW/lede-rockchip/stable/package/base-files/files/etc/banner
-# cp -r ../target/linux/generic/pending-6.1/ ./target/linux/generic/
+cp -r ../target/linux/generic/pending-6.1/ ./target/linux/generic/
