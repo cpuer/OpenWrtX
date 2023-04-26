@@ -101,9 +101,9 @@ svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-ali
 popd
 
 # Add Pandownload
-pushd package/lean
-svn export https://github.com/immortalwrt/packages/trunk/net/pandownload-fake-server
-popd
+# pushd package/lean
+# svn export https://github.com/immortalwrt/packages/trunk/net/pandownload-fake-server
+# popd
 
 # Mod zzz-default-settings
 pushd package/lean/default-settings/files
@@ -115,10 +115,10 @@ sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-setti
 popd
 
 # Fix libssh
-pushd feeds/packages/libs
-rm -rf libssh
-svn export https://github.com/openwrt/packages/trunk/libs/libssh
-popd
+# pushd feeds/packages/libs
+# rm -rf libssh
+# svn export https://github.com/openwrt/packages/trunk/libs/libssh
+# popd
 
 # Change default shell to zsh
 sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
@@ -127,9 +127,9 @@ sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 sed -i 's/192.168.1.1/192.168.1.2/g' package/base-files/files/bin/config_generate
 
 # Test kernel 6.1
-rm -rf target/linux/x86/base-files/etc/board.d/02_network
-cp -f $GITHUB_WORKSPACE/02_network target/linux/x86/base-files/etc/board.d/02_network
+# rm -rf target/linux/x86/base-files/etc/board.d/02_network
+# cp -f $GITHUB_WORKSPACE/02_network target/linux/x86/base-files/etc/board.d/02_network
 sed -i 's/5.15/6.1/g' target/linux/x86/Makefile
 rm -rf package/base-files/files/etc/banner
 wget -P package/base-files/files/etc https://raw.githubusercontent.com/DHDAXCW/lede-rockchip/stable/package/base-files/files/etc/banner
-cp -r ../target/linux/generic/pending-6.1/ ./target/linux/generic/
+# cp -r ../target/linux/generic/pending-6.1/ ./target/linux/generic/
