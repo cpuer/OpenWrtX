@@ -1,4 +1,4 @@
-# x86-64 OpenWrt适用于旁路由<img src="https://img.shields.io/github/downloads/cpuer/OpenWRT_x86_x64/total.svg?style=for-the-badge&color=32C955"/>
+# x86-64 OpenWrt适用于旁路由<img src="https://img.shields.io/github/downloads/cpuer/OpenWRT_x86-64-firmware/total.svg?style=for-the-badge&color=32C955"/>
 ## 本固件默认使用6.1最新内核
 ## 未经许可不得用于任何商用用途
 
