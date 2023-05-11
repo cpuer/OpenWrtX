@@ -23,8 +23,8 @@ svn export https://github.com/DHDAXCW/openwrt-beta/trunk/package/network/service
 # rm -rf feeds/packages/lang/golang
 # svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 
-# mkdir package/community
-# pushd package/community
+mkdir package/community
+pushd package/community
 
 # Add Lienol's Packages
 git clone --depth=1 https://github.com/Lienol/openwrt-package
@@ -37,7 +37,7 @@ git clone --depth=1 https://github.com/fw876/helloworld
 
 # Add luci-app-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2
+# git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2
 svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
 
 # Add luci-app-unblockneteasemusic
@@ -62,11 +62,11 @@ svn export https://github.com/linkease/nas-packages/trunk/network/services/ddnst
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 
 # Add luci-app-dockerman
-rm -rf ../../customfeeds/luci/collections/luci-lib-docker
-rm -rf ../../customfeeds/luci/applications/luci-app-docker
-rm -rf ../../customfeeds/luci/applications/luci-app-dockerman
-git clone --depth=1 https://github.com/lisaac/luci-app-dockerman
-git clone --depth=1 https://github.com/lisaac/luci-lib-docker
+# rm -rf ../../customfeeds/luci/collections/luci-lib-docker
+# rm -rf ../../customfeeds/luci/applications/luci-app-docker
+# rm -rf ../../customfeeds/luci/applications/luci-app-dockerman
+# git clone --depth=1 https://github.com/lisaac/luci-app-dockerman
+# git clone --depth=1 https://github.com/lisaac/luci-lib-docker
 
 # Add luci-app-poweroff
 git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
@@ -74,17 +74,17 @@ git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
 # Add luci-theme
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
 git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
-rm -rf ../../customfeeds/luci/themes/luci-theme-argon
-rm -rf ../../customfeeds/luci/themes/luci-theme-argon-mod
-rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-cp -f $GITHUB_WORKSPACE/data/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-git clone https://github.com/DHDAXCW/theme
+# rm -rf ../../customfeeds/luci/themes/luci-theme-argon
+# rm -rf ../../customfeeds/luci/themes/luci-theme-argon-mod
+# rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+# cp -f $GITHUB_WORKSPACE/data/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+# git clone https://github.com/DHDAXCW/theme
 
 # Add subconverter
 git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter
 
 # alist
-git clone https://github.com/sbwml/openwrt-alist --depth=1
+# git clone https://github.com/sbwml/openwrt-alist --depth=1
 
 # Add luci-app-smartdns & smartdns
 svn export https://github.com/281677160/openwrt-package/trunk/luci-app-smartdns
@@ -96,16 +96,16 @@ svn export https://github.com/openwrt/packages/trunk/utils/apk
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
 
 # Add luci-aliyundrive-webdav
-rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav 
-rm -rf ../../customfeeds/luci/applications/aliyundrive-webdav
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
-popd
+# rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav 
+# rm -rf ../../customfeeds/luci/applications/aliyundrive-webdav
+# svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
+# svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
+# popd
 
 # Add Pandownload
-pushd package/lean
-svn export https://github.com/immortalwrt/packages/trunk/net/pandownload-fake-server
-popd
+# pushd package/lean
+# svn export https://github.com/immortalwrt/packages/trunk/net/pandownload-fake-server
+# popd
 
 # Mod zzz-default-settings
 pushd package/lean/default-settings/files
@@ -132,6 +132,6 @@ sed -i 's/192.168.1.1/192.168.1.2/g' package/base-files/files/bin/config_generat
 rm -rf target/linux/x86/base-files/etc/board.d/02_network
 cp -f $GITHUB_WORKSPACE/02_network target/linux/x86/base-files/etc/board.d/02_network
 sed -i 's/5.15/6.1/g' target/linux/x86/Makefile
-rm -rf package/base-files/files/etc/banner
-wget -P package/base-files/files/etc https://raw.githubusercontent.com/DHDAXCW/lede-rockchip/stable/package/base-files/files/etc/banner
+# rm -rf package/base-files/files/etc/banner
+# wget -P package/base-files/files/etc https://raw.githubusercontent.com/DHDAXCW/lede-rockchip/stable/package/base-files/files/etc/banner
 cp -r ../target/linux/generic/pending-6.1/ ./target/linux/generic/
