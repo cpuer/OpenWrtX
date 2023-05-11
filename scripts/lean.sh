@@ -19,12 +19,12 @@ svn export https://github.com/DHDAXCW/lede-rockchip/trunk/package/kernel/mt76 pa
 svn export https://github.com/DHDAXCW/openwrt-beta/trunk/package/network/services/hostapd package/network/services/hostapd
 
 # alist
-git clone https://github.com/sbwml/luci-app-alist package/alist
-rm -rf feeds/packages/lang/golang
-svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
+# git clone https://github.com/sbwml/luci-app-alist package/alist
+# rm -rf feeds/packages/lang/golang
+# svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 
-mkdir package/community
-pushd package/community
+# mkdir package/community
+# pushd package/community
 
 # Add Lienol's Packages
 git clone --depth=1 https://github.com/Lienol/openwrt-package
