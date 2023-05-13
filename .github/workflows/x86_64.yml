@@ -19,8 +19,8 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: configs/lean/x86-64.config
-  DIY_SH: scripts/lean.sh
+  CONFIG_FILE: configs/x86_64.config
+  DIY_SH: scripts/x86_64.sh
   KMODS_IN_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
