@@ -27,10 +27,10 @@
 # pushd package/community
 
 # Add Lienol's Packages
-git clone --depth=1 https://github.com/Lienol/openwrt-package
-rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
-rm -rf openwrt-package/verysync
-rm -rf openwrt-package/luci-app-verysync
+# git clone --depth=1 https://github.com/Lienol/openwrt-package
+# rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
+# rm -rf openwrt-package/verysync
+# rm -rf openwrt-package/luci-app-verysync
 
 # Add luci-app-ssr-plus
 git clone --depth=1 https://github.com/fw876/helloworld
@@ -90,7 +90,7 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
 svn export https://github.com/281677160/openwrt-package/trunk/luci-app-smartdns
 
 # Add apk (Apk Packages Manager)
-svn export https://github.com/openwrt/packages/trunk/utils/apk
+# svn export https://github.com/openwrt/packages/trunk/utils/apk
 
 # Add OpenAppFilter
 # git clone --depth=1 https://github.com/destan19/OpenAppFilter
