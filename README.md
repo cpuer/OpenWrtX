@@ -1,5 +1,5 @@
-# OpenWrt x86_64 X-ROM<img src="https://img.shields.io/github/downloads/cpuer/OpenWRT_x86-64-firmware/total.svg?style=for-the-badge&color=32C955"/>
-## 基于LEAN源码精简化的OpenWrt，代号为 X 的精简计划，适用于旁路由使用
+# OpenWrtX x86_64 <img src="https://img.shields.io/github/downloads/cpuer/OpenWRT_x86-64-firmware/total.svg?style=for-the-badge&color=32C955"/>
+## 基于LEAN源码精简化的OpenWrt，OpenWrtX精简计划，适用于旁路由使用
 ## 本固件默认使用6.1最新内核
 ## 未经许可不得用于任何商用用途
 
