@@ -5,7 +5,7 @@
 
 ### 默认编译  
 - 用户名：root  密码：password  管理IP：192.168.1.2
-- 固件下载地址：https://github.com/cpuer/OpenWRT_x86_x64/releases
+- 固件下载地址：https://github.com/cpuer/OpenWrtX-x86_64/releases
 # 插件展示
  ![Alt text](scripts/20.png?raw=true "Title")
 
