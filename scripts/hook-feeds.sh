@@ -14,20 +14,20 @@ rm -rf packages/net/gowebdav
 svn co https://github.com/immortalwrt/packages/trunk/net/gowebdav packages/net/gowebdav
 
 # Add tmate
-git clone --depth=1 https://github.com/immortalwrt/openwrt-tmate
+# git clone --depth=1 https://github.com/immortalwrt/openwrt-tmate
 
 # Add gotop
-rm -rf packages/admin/gotop
-svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/admin/gotop packages/admin/gotop
+# rm -rf packages/admin/gotop
+# svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/admin/gotop packages/admin/gotop
 
 # Add minieap
-rm -rf packages/net/minieap
-svn co https://github.com/immortalwrt/packages/trunk/net/minieap packages/net/minieap
+# rm -rf packages/net/minieap
+# svn co https://github.com/immortalwrt/packages/trunk/net/minieap packages/net/minieap
 
 # Replace smartdns with the official version
-rm -rf packages/net/smartdns
-svn co https://github.com/openwrt/packages/trunk/net/smartdns packages/net/smartdns
-popd
+# rm -rf packages/net/smartdns
+# svn co https://github.com/openwrt/packages/trunk/net/smartdns packages/net/smartdns
+# popd
 
 # Set to local feeds
 pushd customfeeds/packages
