@@ -1,6 +1,6 @@
-# OpenWrtX-x86_64 <img src="https://img.shields.io/github/downloads/cpuer/OpenWRT_x86-64-firmware/total.svg?style=for-the-badge&color=32C955"/>
+# OpenWrtX-x86_64 <img src="https://img.shields.io/github/downloads/cpuer/OpenWrtX_x86_64/total.svg?style=for-the-badge&color=32C955"/>
 ## 基于LEAN源码精简化的OpenWrt，OpenWrtX精简计划，适用于旁路由使用
-## 本固件默认使用6.1最新内核
+## 本固件有6.1和5.15内核选择
 ## 未经许可不得用于任何商用用途
 
 ### 默认编译  
@@ -33,3 +33,6 @@ P3TERX 大佬的 Actions-OpenWrt 项目：
 SuLingGG 大佬的 Actions 编译框架 项目：
 
 https://github.com/SuLingGG/OpenWrt-Rpi
+
+DHDAXCW 大佬的 Actions 编译框架 项目：
+https://github.com/DHDAXCW/OpenWRT_x86_x64
