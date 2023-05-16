@@ -1,4 +1,4 @@
-# OpenWrtX-x86_64 <img src="https://img.shields.io/github/downloads/cpuer/OpenWrtX_x86_64/total.svg?style=for-the-badge&color=32C955"/>
+# OpenWrtX-x86_64 <img src="https://img.shields.io/github/downloads/cpuer/OpenWrtX-x86_64/total.svg?style=for-the-badge&color=32C955"/>
 ## 基于LEAN源码精简化的OpenWrt，OpenWrtX精简计划，适用于旁路由使用
 ## 本固件有6.1和5.15内核选择
 ## 未经许可不得用于任何商用用途
