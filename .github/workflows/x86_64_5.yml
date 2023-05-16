@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: OpenWrtX-x86_64_5
+name: OpenWrtX-5.15-x86_64
 
 on:
   repository_dispatch:
