@@ -20,7 +20,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   CONFIG_FILE: configs/lean/x86_64.config
-  DIY_SH: scripts/x86_64.sh
+  DIY_SH: scripts/lean.sh
   KMODS_IN_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
@@ -154,10 +154,10 @@ jobs:
         rm -rf openwrt-x86-64-generic-squashfs-rootfs.img.gz
         rm -rf openwrt-x86-64-generic-squashfs-combined-efi.vmdk
         rm -rf openwrt-x86-64-generic.manifest
-        mv openwrt-x86-64-generic-squashfs-combined-efi.img.gz openwrtx-6.1-x86-64-squashfs-efi.img.gz
+        mv openwrt-x86-64-generic-squashfs-combined-efi.img.gz openwrtx-x86-64-squashfs-efi.img.gz
         popd
         make checksum
-        mv bin/targets/x86/64/sha256sums bin/targets/x86/64/openwrtx-6.1-sha256sums
+        mv bin/targets/x86/64/sha256sums bin/targets/x86/64/openwrtx-sha256sums
         echo "GENERATE_STATUS=success" >> $GITHUB_OUTPUT
 
     - name: Generate release tag
@@ -167,7 +167,7 @@ jobs:
           echo "release_tag=$(date +"%Y.%m.%d")-Lean" >> $GITHUB_OUTPUT
           echo "release_date=$(date +"%Y.%m.%d")" >> $GITHUB_OUTPUT
           touch release.txt
-          echo "OpenWrtX-6.1-x86-64
+          echo "OpenWrtX-x86-64
                 后台地址：192.168.11.1
                 账号：root
                 密码：password" >> release.txt
@@ -179,7 +179,7 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          name: ${{ steps.tag.outputs.release_date }} OpenWrtX-6.1-x86_64-Linux-${{ steps.generate.outputs.kernel_version }} 固件
+          name: ${{ steps.tag.outputs.release_date }} OpenWrtX-x86_64-Linux-${{ steps.generate.outputs.kernel_version }} 固件
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
