@@ -6,6 +6,7 @@
 ### 默认编译  
 - 用户名：root  密码：password  管理IP：192.168.11.1
 - 固件下载地址：https://github.com/cpuer/OpenWrtX-x86_64/releases
+- 完美支持aw7916 minipcie电流要求3a以上才不会掉卡
 # 插件展示
  ![Alt text](scripts/20.png?raw=true "Title")
 
