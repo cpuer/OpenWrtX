@@ -178,7 +178,7 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          name: ${{ steps.tag.outputs.release_date }} OpenWrtX-x86_64-Linux-${{ steps.generate.outputs.kernel_version }} 固件
+          name: 编译日期：${{ steps.tag.outputs.release_date }} 固件名称：OpenWrtX 内核版本：x86_64-Linux-${{ steps.generate.outputs.kernel_version }}
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
