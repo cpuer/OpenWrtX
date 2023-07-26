@@ -12,7 +12,7 @@ on:
   repository_dispatch:
   workflow_dispatch:
   schedule:
-    - cron: 0 18 * * *
+    - cron: 0 17 * * *
   # watch:
   #   types: started
 
@@ -54,7 +54,7 @@ jobs:
 
     - name: Clone Source Code
       run: |
-        df -hT $PWD
+#        df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
     - name: Update Feeds
       id: update
@@ -193,7 +193,7 @@ jobs:
       uses: dev-drprasad/delete-older-releases@v0.2.1
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-          keep_latest: 30
+          keep_latest: 20
           delete_tags: true
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
