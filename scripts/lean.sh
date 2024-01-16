@@ -86,7 +86,7 @@ git clone https://github.com/sbwml/openwrt-alist --depth=1
 svn export https://github.com/281677160/openwrt-package/trunk/luci-app-smartdns
 
 # Add apk (Apk Packages Manager)
-svn export https://github.com/openwrt/packages/trunk/utils/apk
+# svn export https://github.com/openwrt/packages/trunk/utils/apk
 
 # Add OpenAppFilter
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
