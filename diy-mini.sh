@@ -27,10 +27,6 @@ function git_sparse_clone() {
   cd .. && rm -rf $repodir
 }
 
-# 修复 xray-core 1.8.8 无法编译
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
-
 # 添加额外插件
 git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 git clone --depth=1 https://github.com/Jason6111/luci-app-netdata package/luci-app-netdata
@@ -120,4 +116,9 @@ sed -i 's|admin\\|admin\\/services\\|g' feeds/luci/applications/luci-app-dockerm
 # sed -i '/samba4/s/^/#/' package/lean/default-settings/files/zzz-default-settings
 
 ./scripts/feeds update -a
+
+# 修复 xray-core 1.8.8 无法编译
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+
 ./scripts/feeds install -a
