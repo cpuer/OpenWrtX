@@ -117,7 +117,3 @@ sed -i 's|admin\\|admin\\/services\\|g' feeds/luci/applications/luci-app-dockerm
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
-
-# 修复 xray-core 1.8.8 无法编译
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
