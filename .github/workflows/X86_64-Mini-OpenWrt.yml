@@ -93,6 +93,9 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo chown $USER:$GROUPS $GITHUB_WORKSPACE
 
+    - name: Checkout
+      uses: actions/checkout@main
+
     - name: Clone Source Code
       run: |
         df -hT $GITHUB_WORKSPACE
