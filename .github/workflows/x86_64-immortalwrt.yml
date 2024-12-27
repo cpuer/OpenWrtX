@@ -99,7 +99,7 @@ jobs:
         df -hT $GITHUB_WORKSPACE
         git clone $REPO_URL -b $REPO_BRANCH immortalwrt
         cd immortalwrt
-        echo "IMMORTALWRT_PATH=$PWD" >> $GITHUB_ENV
+        echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
         COMMIT_AUTHOR=$(git show -s --date=short --format="作者: %an")
         echo "COMMIT_AUTHOR=$COMMIT_AUTHOR" >> $GITHUB_ENV
         COMMIT_DATE=$(git show -s --date=short --format="时间: %ci")
@@ -111,8 +111,8 @@ jobs:
 
     - name: Generate Variables
       run: |
-        cp $CONFIG_FILE $IMMORTALWRT_PATH/.config
-        cd $IMMORTALWRT_PATH
+        cp $CONFIG_FILE $OPENWRT_PATH/.config
+        cd $OPENWRT_PATH
         make defconfig > /dev/null 2>&1
         SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
         echo "SOURCE_REPO=$SOURCE_REPO" >> $GITHUB_ENV
@@ -127,21 +127,21 @@ jobs:
       with:
         ccache: false
         mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
-        prefix: ${{ env.IMMORTALWRT_PATH }}
+        prefix: ${{ env.OPENWRT_PATH }}
 
     - name: Install Feeds
       run: |
-        cd $IMMORTALWRT_PATH
+        cd $OPENWRT_PATH
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
     - name: Load Custom Configuration
       run: |
-        [ -e files ] && mv files $IMMORTALWRT_PATH/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $IMMORTALWRT_PATH/.config
+        [ -e files ] && mv files $OPENWRT_PATH/files
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $OPENWRT_PATH/.config
         chmod +x $GITHUB_WORKSPACE/scripts/*.sh
         chmod +x $DIY_SCRIPT
-        cd $IMMORTALWRT_PATH
+        cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
         $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $CLASH_KERNEL
         $GITHUB_WORKSPACE/scripts/preset-terminal-tools.sh
@@ -149,7 +149,7 @@ jobs:
 
     - name: Download DL Package
       run: |
-        cd $IMMORTALWRT_PATH
+        cd $OPENWRT_PATH
         make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
@@ -158,7 +158,7 @@ jobs:
     - name: Compile Firmware
       id: compile
       run: |
-        cd $IMMORTALWRT_PATH
+        cd $OPENWRT_PATH
         mkdir -p files/etc/uci-defaults
         cp $GITHUB_WORKSPACE/scripts/init-settings.sh files/etc/uci-defaults/99-init-settings
         echo -e "$(nproc) thread compile"
@@ -176,12 +176,12 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: ${{ env.SOURCE_REPO }}-bin-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
-        path: ${{ env.IMMORTALWRT_PATH }}/bin
+        path: ${{ env.OPENWRT_PATH }}/bin
 
     - name: Organize Files
       if: steps.compile.outputs.status == 'success'
       run: |
-        cd $IMMORTALWRT_PATH/bin/targets/*/*
+        cd $OPENWRT_PATH/bin/targets/*/*
         cat config.buildinfo
         echo "KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ')" >> $GITHUB_ENV
         rm -rf packages *.buildinfo *.manifest *kernel.bin *rootfs.img.gz profiles.json sha256sums
