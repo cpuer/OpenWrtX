@@ -61,7 +61,7 @@ jobs:
       run: |
         sudo -E apt-get -y update
         sudo -E apt-get -y install rename $(curl -fsSL is.gd/depends_ubuntu_2204)
-        sudo -E apt-get -y clang
+        sudo -E apt-get -y install clang
         sudo -E systemctl daemon-reload
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get -y clean
