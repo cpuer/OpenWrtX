@@ -111,7 +111,6 @@ jobs:
 
     - name: Generate Variables
       run: |
-        cp $CONFIG_FILE $OPENWRT_PATH/.config
         cd $OPENWRT_PATH
         make defconfig > /dev/null 2>&1
         SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
@@ -177,6 +176,12 @@ jobs:
       with:
         name: ${{ env.SOURCE_REPO }}-bin-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
         path: ${{ env.OPENWRT_PATH }}/bin
+
+    - name: Find IPK Files (Debug)
+      if: steps.compile.outputs.status == 'success'
+      run: |
+        cd $OPENWRT_PATH
+        find bin/ -name "*.ipk" -print
 
     - name: Organize Files
       if: steps.compile.outputs.status == 'success'
