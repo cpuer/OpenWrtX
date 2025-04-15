@@ -10,6 +10,7 @@
 # sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 # 移除要替换的包
+rm -rf feeds/packages/lang/node
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/net/msd_lite
@@ -30,6 +31,8 @@ function git_sparse_clone() {
   cd .. && rm -rf $repodir
 }
 
+# 安装node
+git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt -b packages-24.10 feeds/packages/lang/node
 # 修复golang版本过低
 git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
 
